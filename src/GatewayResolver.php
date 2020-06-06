@@ -114,15 +114,8 @@ class GatewayResolver
 		if (!$transaction)
 			throw new NotFoundTransactionException;
 
-		// if (in_array($transaction->status, [Enum::TRANSACTION_SUCCEED, Enum::TRANSACTION_FAILED]))
-		// 	throw new RetryException;
-		if ($transaction->status == Enum::TRANSACTION_SUCCEED) {
-			$this->make($transaction->port);
-			$this->port->setTransaction($transaction);
-			return $this->port;
-		} elseif($transaction->status == Enum::TRANSACTION_FAILED) {
-			throw new RetryException;
-		}
+		if (in_array($transaction->status, [Enum::TRANSACTION_SUCCEED, Enum::TRANSACTION_FAILED]))
+		 	throw new RetryException;
 
 		$this->make($transaction->port);
 
