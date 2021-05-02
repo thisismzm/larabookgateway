@@ -91,6 +91,18 @@ return [
 		'PRIVATE_KEY' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
 		'callback-url' => '/gateway/callback/saderat'
 	],
+	//--------------------------------
+	// IDPay gateway
+	//--------------------------------
+	'IDPay' => [
+		'API_KEY' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+		'sandbox' => false,
+		'callback-url' => '/gateway/callback/IDPay',
+		'name'        => '',
+		'email'        => '',
+		'mobile'       => '',
+		'description'  => '',
+	],
 	//-------------------------------
 	// Tables names
 	//--------------------------------

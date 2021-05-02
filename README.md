@@ -15,6 +15,7 @@ Available Banks:
  6. JAHANPAY
  7. PAYLINE
  8. PAY (PAY.IR)
+ 9. IDPAY (IDPAY.IR)
 
 ----------
 
