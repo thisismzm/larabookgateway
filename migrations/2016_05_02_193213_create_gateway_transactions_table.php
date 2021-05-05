@@ -34,6 +34,7 @@ class CreateGatewayTransactionsTable extends Migration
 				Enum::SAMAN,
 				Enum::PAY,
 				Enum::SADERAT,
+				Enum::IDPAY,
 			]);
 			$table->decimal('price', 15, 2);
 			$table->string('ref_id', 100)->nullable();

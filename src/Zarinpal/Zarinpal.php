@@ -294,7 +294,7 @@ class Zarinpal extends PortAbstract implements PortInterface
 	 */
 	public function setDescription($description)
 	{
-		$this->description = $description;
+		$this->description = substr($description, 0, 300);
 	}
 
 	/**
