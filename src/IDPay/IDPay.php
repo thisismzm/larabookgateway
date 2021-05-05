@@ -1,13 +1,13 @@
 <?php
 
-namespace Larabookir\Gateway\IDPay;
+namespace Larabookir\Gateway\Idpay;
 
 use Illuminate\Support\Facades\Input;
 use Larabookir\Gateway\Enum;
 use Larabookir\Gateway\PortAbstract;
 use Larabookir\Gateway\PortInterface;
 
-class IDPay extends PortAbstract implements PortInterface
+class Idpay extends PortAbstract implements PortInterface
 {
 	/**
 	 * Address of main CURL server
@@ -124,7 +124,7 @@ class IDPay extends PortAbstract implements PortInterface
 	 *
 	 * @return void
 	 *
-	 * @throws IDPaySendException
+	 * @throws IdpaySendException
 	 */
 	protected function sendPayRequest()
 	{
@@ -164,7 +164,7 @@ class IDPay extends PortAbstract implements PortInterface
 
 		$this->transactionFailed();
 		$this->newLog($response->error_code, $response->error_message);
-		throw new IDPaySendException($response->error_code);
+		throw new IdpaySendException($response->error_code);
 	}
 
 	/**
@@ -183,17 +183,17 @@ class IDPay extends PortAbstract implements PortInterface
 		}
 
 		$this->transactionFailed();
-		$this->newLog($status, IDPayReceiveException::$errors[$status]);
-		throw new IDPayReceiveException($status);
+		$this->newLog($status, IdpayReceiveException::$errors[$status]);
+		throw new IdpayReceiveException($status);
 	}
 
 
 	/**
-	 * Verify user payment from IDPay server
+	 * Verify user payment from Idpay server
 	 *
 	 * @return bool
 	 *
-	 * @throws IDPayReceiveException
+	 * @throws IdpayReceiveException
 	 */
 	protected function verifyPayment()
 	{
@@ -232,9 +232,9 @@ class IDPay extends PortAbstract implements PortInterface
 
 		$this->transactionFailed();
 		$code = $response->error_code ?? $response->status;
-		$message = $response->error_message ?? IDPayReceiveException::$errors[$code];
+		$message = $response->error_message ?? IdpayReceiveException::$errors[$code];
 		$this->newLog($code, $message);
-		throw new IDPayReceiveException($code);
+		throw new IdpayReceiveException($code);
 	}
 	
 	/**

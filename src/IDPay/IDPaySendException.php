@@ -1,10 +1,10 @@
 <?php
 
-namespace Larabookir\Gateway\IDPay;
+namespace Larabookir\Gateway\Idpay;
 
 use Larabookir\Gateway\Exceptions\BankException;
 
-class IDPaySendException extends BankException
+class IdpaySendException extends BankException
 {
     public static $errors = array(
         '11' => 'کاربر مسدود شده است.',

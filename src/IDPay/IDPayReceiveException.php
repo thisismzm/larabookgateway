@@ -1,10 +1,10 @@
 <?php
 
-namespace Larabookir\Gateway\IDPay;
+namespace Larabookir\Gateway\Idpay;
 
 use Larabookir\Gateway\Exceptions\BankException;
 
-class IDPayReceiveException extends BankException
+class IdpayReceiveException extends BankException
 {
     public static $errors = array(
         '1' => 'پرداخت انجام نشده است',

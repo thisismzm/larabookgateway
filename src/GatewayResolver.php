@@ -13,7 +13,7 @@ use Larabookir\Gateway\JahanPay\JahanPay;
 use Larabookir\Gateway\Pay\Pay;
 use Larabookir\Gateway\Saderat\Saderat;
 use Larabookir\Gateway\Saderatnew\Saderatnew;
-use Larabookir\Gateway\IDPay\IDPay;
+use Larabookir\Gateway\Idpay\Idpay;
 use Larabookir\Gateway\Exceptions\RetryException;
 use Larabookir\Gateway\Exceptions\PortNotFoundException;
 use Larabookir\Gateway\Exceptions\InvalidRequestException;
@@ -33,7 +33,7 @@ class GatewayResolver
 	/**
 	 * Keep current port driver
 	 *
-	 * @var Mellat|Saman|Sadad|Zarinpal|Payline|JahanPay|Parsian|Pay|Saderat|Saderatnew|IDPay
+	 * @var Mellat|Saman|Sadad|Zarinpal|Payline|JahanPay|Parsian|Pay|Saderat|Saderatnew|Idpay
 	 */
 	protected $port;
 
@@ -152,7 +152,7 @@ class GatewayResolver
 			$name = Enum::SADERAT;
 		} elseif ($port InstanceOf Saderatnew) {
 			$name = Enum::SADERATNEW;
-		} elseif ($port InstanceOf IDPay) {
+		} elseif ($port InstanceOf Idpay) {
 			$name = Enum::IDPAY;
 		} elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
 			$port=ucfirst(strtolower($port));
