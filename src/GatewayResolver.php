@@ -14,6 +14,7 @@ use Larabookir\Gateway\Pay\Pay;
 use Larabookir\Gateway\Saderat\Saderat;
 use Larabookir\Gateway\Saderatnew\Saderatnew;
 use Larabookir\Gateway\Idpay\Idpay;
+use Larabookir\Gateway\Alfacoins\Alfacoins;
 use Larabookir\Gateway\Exceptions\RetryException;
 use Larabookir\Gateway\Exceptions\PortNotFoundException;
 use Larabookir\Gateway\Exceptions\InvalidRequestException;
@@ -33,7 +34,7 @@ class GatewayResolver
 	/**
 	 * Keep current port driver
 	 *
-	 * @var Mellat|Saman|Sadad|Zarinpal|Payline|JahanPay|Parsian|Pay|Saderat|Saderatnew|Idpay
+	 * @var Mellat|Saman|Sadad|Zarinpal|Payline|JahanPay|Parsian|Pay|Saderat|Saderatnew|Idpay|Alfacoins
 	 */
 	protected $port;
 
@@ -60,7 +61,7 @@ class GatewayResolver
 	 */
 	public function getSupportedPorts()
 	{
-		return [Enum::MELLAT, Enum::SADAD, Enum::ZARINPAL, Enum::PAYLINE, Enum::JAHANPAY, Enum::PARSIAN, Enum::PASARGAD, Enum::SAMAN, Enum::PAY, Enum::SADERAT, Enum::SADERATNEW, Enum::IDPAY];
+		return [Enum::MELLAT, Enum::SADAD, Enum::ZARINPAL, Enum::PAYLINE, Enum::JAHANPAY, Enum::PARSIAN, Enum::PASARGAD, Enum::SAMAN, Enum::PAY, Enum::SADERAT, Enum::SADERATNEW, Enum::IDPAY, Enum::ALFACOINS];
 	}
 
 	/**
@@ -154,6 +155,8 @@ class GatewayResolver
 			$name = Enum::SADERATNEW;
 		} elseif ($port InstanceOf Idpay) {
 			$name = Enum::IDPAY;
+		} elseif ($port InstanceOf Alfacoins) {
+			$name = Enum::ALFACOINS;
 		} elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
 			$port=ucfirst(strtolower($port));
 			$name=strtoupper($port);
