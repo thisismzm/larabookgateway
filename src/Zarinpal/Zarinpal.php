@@ -318,4 +318,15 @@ class Zarinpal extends PortAbstract implements PortInterface
 	{
 		$this->mobileNumber = $number;
 	}
+
+	/**
+	 * Set Payer Mobile Number
+	 *
+	 * @param $number
+	 * @return void
+	 */
+	public function getGatewayUrl()
+	{
+		return \Config::get('gateway.zarinpal.server') === 'test' ? $this->sandboxGateUrl . $this->refId : $this->gateUrl . $this->refId;
+	}
 }
