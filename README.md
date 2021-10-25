@@ -16,6 +16,7 @@ Available Banks:
  7. PAYLINE
  8. PAY (PAY.IR)
  9. IDPAY (IDPAY.IR)
+ 10. ALFACOINS (alfacoins.com)
 
 ----------
 

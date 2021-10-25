@@ -261,7 +261,7 @@ class Alfacoins extends PortAbstract implements PortInterface
 	}
 
 	/**
-	 * Verify user payment from Idpay server
+	 * Verify user payment from Alfacoins server
 	 *
 	 * @return bool
 	 *
@@ -278,12 +278,11 @@ class Alfacoins extends PortAbstract implements PortInterface
 			return true;
 		} elseif ($order_status['status'] == 'paid') {
 			$this->cardNumber = $order_status['deposit']['address'];
-			$this->transactionFailed();
 			$this->newLog('paid', 'transiction paid but not confirm yet');
 			throw new ALFAcoins_Exception('transiction paid but not confirm yet', 1001);
 		}
 
-		$this->transactionFailed();
+		//$this->transactionFailed();
 		throw new ALFAcoins_Exception(Enum::TRANSACTION_FAILED_TEXT, 0);
 	}
 

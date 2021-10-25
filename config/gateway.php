@@ -103,6 +103,21 @@ return [
 		'mobile'       => '',
 		'description'  => '',
 	],
+	//--------------------------------
+	// Alfacoins gateway
+	//--------------------------------
+	'Alfacoins' => [
+		'shop_name' => 'xxxxxxxx',
+		'shop_password' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+		'shop_secret_key' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+		'name' => '',
+		'email' => 'test@gmail.com',
+		'description' => '',
+		'type' => 'all',
+		'currency' => 'USD',
+		'callback-url' => url('/callback/alfacoin'),
+		'notification-callback-url'  => url('/notificationcallback/alfacoin'),
+	],
 	//-------------------------------
 	// Tables names
 	//--------------------------------
