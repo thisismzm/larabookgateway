@@ -13,6 +13,7 @@ class SaderatException extends BankException
 		-4 => 'امکان انجام درخواست برای این تراکنش وجود ندارد.',
 		-5 => 'آدرس IP نامعتبر میباشد ) IP در لیست آدرسهای معرفی شده توسط پذیرنده موجود نمیباشد(',
 		-6 => 'عدم فعال بودن سرویس برگشت تراکنش برای پذیرنده',
+		1009 => 'OPEN SSL SIGN ERROR',
 	);
 
 	public function __construct($errorId)
