@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>در حال انتقال به سرور بانک</title>
 	<style type="text/css">
@@ -11,21 +12,25 @@
 			overflow: visible;
 			background: #fff;
 		}
-		.center{
+
+		.center {
 			direction: rtl;
 			font-family: tahoma;
 			color: #333;
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate3d(-50%,-50%,0);
+			transform: translate3d(-50%, -50%, 0);
 			width: 300px;
 			height: 200px;
 			text-align: center;
 		}
+
 		#loader {
-			border: 12px solid #f3f3f3; /* Light grey */
-			border-top: 12px solid #3498db; /* Blue */
+			border: 12px solid #f3f3f3;
+			/* Light grey */
+			border-top: 12px solid #3498db;
+			/* Blue */
 			border-radius: 50%;
 			width: 50px;
 			height: 50px;
@@ -34,30 +39,47 @@
 		}
 
 		@keyframes spin {
-			0% { transform: rotate(0deg); }
-			100% { transform: rotate(360deg); }
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
 		}
 	</style>
 </head>
-	<body>
-		<div class="center">
-			<div id="loader"></div>
-			<p>در حال اتصال به سرور بانک ...</p>
-		</div>
-		<script>
-			var form = document.createElement("form");
+
+<body>
+	<div class="center">
+		<div id="loader"></div>
+		<p>در حال اتصال به سرور بانک ...</p>
+	</div>
+	<script>
+		var form = document.createElement("form");
 			form.setAttribute("method", "POST");
-			form.setAttribute("action", "https://mabna.shaparak.ir");
+			form.setAttribute("action", "https://sepehr.shaparak.ir:8080/Pay");
 			form.setAttribute("target", "_self");
 
 			var hiddenField = document.createElement("input");
-			hiddenField.setAttribute("name", "TOKEN");
-			hiddenField.setAttribute("value", "{{$refId}}");
+			hiddenField.setAttribute("name", "token");
+			hiddenField.setAttribute("value", "{{ $token }}");
+			form.appendChild(hiddenField);
+
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("name", "TerminalID");
+			hiddenField.setAttribute("value", "{{ $TerminalID }}");
+			form.appendChild(hiddenField);
+
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("name", "getMethod");
+			hiddenField.setAttribute("value", "0");
 			form.appendChild(hiddenField);
 
 			document.body.appendChild(form);
 			form.submit();
 			document.body.removeChild(form);
-		</script>
-	</body>
+	</script>
+</body>
+
 </html>
