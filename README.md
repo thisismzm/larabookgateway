@@ -17,6 +17,7 @@ Available Banks:
  8. PAY (PAY.IR)
  9. IDPAY (IDPAY.IR)
  10. ALFACOINS (alfacoins.com)
+ 11. PAYPING (payping.io)
 
 ----------
 

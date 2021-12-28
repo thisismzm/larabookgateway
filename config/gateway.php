@@ -118,6 +118,18 @@ return [
 		'callback-url' => url('/callback/alfacoin'),
 		'notification-callback-url'  => url('/notificationcallback/alfacoin'),
 	],
+	//--------------------------------
+	// Payping gateway
+	//--------------------------------
+	'payping' => [
+		'client_id' => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+		'client_secret' => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+		'token' => 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+		'name' => '',
+		'email' => 'test@gmail.com',
+		'description' => '',
+		'callback-url' => url('/callback/payping'),
+	],
 	//-------------------------------
 	// Tables names
 	//--------------------------------
