@@ -235,7 +235,7 @@ class Zarinpal extends PortAbstract implements PortInterface
 		$fields = array(
 			'MerchantID' => $this->config->get('gateway.zarinpal.merchant-id'),
 			'Authority' => $this->refId,
-			'Amount' => $this->amount / 10,
+			'Amount' => $this->amount,
 		);
 
 		try {
