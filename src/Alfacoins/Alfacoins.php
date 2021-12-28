@@ -11,40 +11,6 @@ use Larabookir\Gateway\Alfacoins\ALFAcoins_publicAPI;
 
 class Alfacoins extends PortAbstract implements PortInterface
 {
-	/**
-	 * Address of CURL server for verify payment
-	 *
-	 * @var string
-	 */
-	protected $gatewayUrl;
-
-	/**
-	 * Payment Name
-	 *
-	 * @var string
-	 */
-	protected $name;
-
-	/**
-	 * Payment Description
-	 *
-	 * @var string
-	 */
-	protected $description;
-
-	/**
-	 * Payer Email Address
-	 *
-	 * @var string
-	 */
-	protected $email;
-
-	/**
-	 * Payer Mobile Number
-	 *
-	 * @var string
-	 */
-	protected $mobileNumber;
 
 	/**
 	 * Notification Callback Url
@@ -134,61 +100,6 @@ class Alfacoins extends PortAbstract implements PortInterface
 
 		return $this->makeCallback($this->notificationCallbackUrl, ['transaction_id' => $this->transactionId()]);
 	}
-
-	
-	/**
-	 * Set Payer Name
-	 *
-	 * @param $name
-	 * @return void
-	 */
-	public function setName($name)
-	{
-		$this->name = substr($name, 0, 300);
-	}
-
-	/**
-	 * Set Description
-	 *
-	 * @param $description
-	 * @return void
-	 */
-	public function setDescription($description)
-	{
-		$this->description = substr($description, 0, 300);
-	}
-
-	/**
-	 * Set Payer Email Address
-	 *
-	 * @param $email
-	 * @return void
-	 */
-	public function setEmail($email)
-	{
-		$this->email = substr($email, 0, 300);
-	}
-
-	/**
-	 * Set Payer Mobile Number
-	 *
-	 * @param $number
-	 * @return void
-	 */
-	public function setMobileNumber($number)
-	{
-		$this->mobileNumber = substr($number, 0, 300);
-	}
-
-	/**
-	 * get gateway url
-	 * @return string
-	 */
-	public function getGatewayUrl()
-	{
-		return $this->gatewayUrl;
-	}
-
 
 	/**
 	 *  get BTC/USD exchange rate for 1 BTC (example of response: ["6459.83401257"])

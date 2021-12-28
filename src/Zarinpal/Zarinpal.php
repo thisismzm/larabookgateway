@@ -235,7 +235,7 @@ class Zarinpal extends PortAbstract implements PortInterface
 		$fields = array(
 			'MerchantID' => $this->config->get('gateway.zarinpal.merchant-id'),
 			'Authority' => $this->refId,
-			'Amount' => $this->amount,
+			'Amount' => $this->amount / 10,
 		);
 
 		try {
@@ -283,40 +283,6 @@ class Zarinpal extends PortAbstract implements PortInterface
 				$this->serverUrl = $this->germanyServer;
 				break;
 		}
-	}
-
-
-	/**
-	 * Set Description
-	 *
-	 * @param $description
-	 * @return void
-	 */
-	public function setDescription($description)
-	{
-		$this->description = substr($description, 0, 300);
-	}
-
-	/**
-	 * Set Payer Email Address
-	 *
-	 * @param $email
-	 * @return void
-	 */
-	public function setEmail($email)
-	{
-		$this->email = $email;
-	}
-
-	/**
-	 * Set Payer Mobile Number
-	 *
-	 * @param $number
-	 * @return void
-	 */
-	public function setMobileNumber($number)
-	{
-		$this->mobileNumber = $number;
 	}
 
 	/**

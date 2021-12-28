@@ -23,40 +23,6 @@ class Idpay extends PortAbstract implements PortInterface
 	 */
 	protected $serverVerifyUrl = 'https://api.idpay.ir/v1.1/payment/verify';
 
-	/**
-	 * Address of CURL server for verify payment
-	 *
-	 * @var string
-	 */
-	protected $gatewayUrl;
-
-	/**
-	 * Payment Name
-	 *
-	 * @var string
-	 */
-	protected $name;
-
-	/**
-	 * Payment Description
-	 *
-	 * @var string
-	 */
-	protected $description;
-
-	/**
-	 * Payer Email Address
-	 *
-	 * @var string
-	 */
-	protected $email;
-
-	/**
-	 * Payer Mobile Number
-	 *
-	 * @var string
-	 */
-	protected $mobileNumber;
 
 	/**
 	 * {@inheritdoc}
@@ -235,60 +201,5 @@ class Idpay extends PortAbstract implements PortInterface
 		$message = $response->error_message ?? IdpayReceiveException::$errors[$code];
 		$this->newLog($code, $message);
 		throw new IdpayReceiveException($code);
-	}
-	
-	/**
-	 * Set Payer Name
-	 *
-	 * @param $name
-	 * @return void
-	 */
-	public function setName($name)
-	{
-		$this->name = substr($name, 0, 300);
-	}
-
-	/**
-	 * Set Description
-	 *
-	 * @param $description
-	 * @return void
-	 */
-	public function setDescription($description)
-	{
-		$this->description = substr($description, 0, 300);
-	}
-
-	/**
-	 * Set Payer Email Address
-	 *
-	 * @param $email
-	 * @return void
-	 */
-	public function setEmail($email)
-	{
-		$this->email = $email;
-	}
-
-	/**
-	 * Set Payer Mobile Number
-	 *
-	 * @param $number
-	 * @return void
-	 */
-	public function setMobileNumber($number)
-	{
-		$this->mobileNumber = $number;
-	}
-
-	/**
-	 * get gateway url
-	 *
-	 * @param $number
-	 * @return void
-	 */
-	public function getGatewayUrl()
-	{
-		return $this->gatewayUrl;
 	}
 }
