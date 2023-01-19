@@ -18,6 +18,7 @@ class Enum
 	const IDPAY = 'IDPAY';
 	const ALFACOINS = 'ALFACOINS';
 	const PAYPING = 'PAYPING';
+	const PLISIO = 'PLISIO';
 
 	/**
 	 * Status code for status field in poolport_transactions table

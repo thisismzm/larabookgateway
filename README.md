@@ -18,6 +18,7 @@ Available Banks:
  9. IDPAY (IDPAY.IR)
  10. ALFACOINS (alfacoins.com)
  11. PAYPING (payping.io)
+ 12. PLISIO (plisio.net)
 
 ----------
 
