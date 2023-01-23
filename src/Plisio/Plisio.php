@@ -198,7 +198,7 @@ class Plisio extends PortAbstract implements PortInterface
         }
         $order_status = $post['status'];
 
-        if ($order_status['status'] == 'expired') {
+        if ($order_status['status'] == 'completed') {
             $this->transactionSucceed();
             $this->newLog('completed', Enum::TRANSACTION_SUCCEED_TEXT);
             return true;
