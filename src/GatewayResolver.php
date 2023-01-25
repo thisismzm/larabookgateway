@@ -109,6 +109,8 @@ class GatewayResolver
 			$id = $this->request->get('transaction_id');
 		} elseif ($this->request->has('invoiceid')) {
 			$id = $this->request->get('invoiceid');
+		} elseif ($this->request->has('order_number')) {
+			$id = $this->request->get('order_number');
 		} else {
 			$id = $this->request->get('iN');
 		}
