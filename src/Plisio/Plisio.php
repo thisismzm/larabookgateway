@@ -194,15 +194,16 @@ class Plisio extends PortAbstract implements PortInterface
         $postString = serialize($post);
         $checkKey = hash_hmac('sha1', $postString, $this->config->get('gateway.Plisio.secret_key', ''));
         if ($checkKey != $verifyHash) {
+            \Log::info('pliso wrong verifyHash');
             return false;
         }
         $order_status = $post['status'];
 
-        if ($order_status['status'] == 'completed') {
+        if ($order_status == 'completed') {
             $this->transactionSucceed();
             $this->newLog('completed', Enum::TRANSACTION_SUCCEED_TEXT);
             return true;
-        } elseif ($order_status['status'] == 'pending') {
+        } elseif ($order_status == 'pending') {
             $this->newLog('pending', 'transiction paid but not confirm yet');
             throw new Plisio_Exception('transiction paid but not confirm yet', 1001);
         }
