@@ -3,7 +3,7 @@
 namespace Larabookir\Gateway\Saderat;
 
 use DateTime;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Larabookir\Gateway\Enum;
 use SoapClient;
 use Larabookir\Gateway\PortAbstract;
@@ -131,7 +131,7 @@ class Saderat extends PortAbstract implements PortInterface
      */
     protected function verifyPayment()
     {
-        $responce = \Input::all();
+        $responce = \Request::all();
         // echo $inputs['respmsg'];
         if ($responce['respcode'] == 0) {
             $fields = [

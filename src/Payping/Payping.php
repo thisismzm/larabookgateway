@@ -2,7 +2,7 @@
 
 namespace Larabookir\Gateway\Payping;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Larabookir\Gateway\Enum;
 use Larabookir\Gateway\PortAbstract;
 use Larabookir\Gateway\PortInterface;
@@ -82,11 +82,11 @@ class Payping extends PortAbstract implements PortInterface
      */
     public function getOauthCallback($redirect_uri)
     {
-        $code = \Input::get('code');
+        $code = \Request::get('code');
         $client_id = $this->config->get('gateway.payping.client_id');
         $client_secret = $this->config->get('gateway.payping.client_secret');
         $code_verifier = \Session::get('payping_code_verifier');
-        $sl = \Input::get('state');
+        $sl = \Request::get('state');
 
         $fields = [
             "grant_type" => "authorization_code",
@@ -207,7 +207,7 @@ class Payping extends PortAbstract implements PortInterface
      */
     protected function verifyPayment()
     {
-        $refId = \Input::get('refid', false);
+        $refId = \Request::get('refid', false);
         $fields = array(
             'amount'	=> $this->amount / 10,
             'refId'		=> $refId,
@@ -220,7 +220,7 @@ class Payping extends PortAbstract implements PortInterface
         $jsonresult = json_decode($result);
         if (isset($jsonresult->success)) {
             $this->trackingCode = $refId;
-            $this->cardNumber = \Input::get('cardnumber', '');
+            $this->cardNumber = \Request::get('cardnumber', '');
             $this->transactionSucceed();
             $this->newLog(100, Enum::TRANSACTION_SUCCEED_TEXT);
             return true;

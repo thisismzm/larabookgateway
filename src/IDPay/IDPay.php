@@ -2,7 +2,7 @@
 
 namespace Larabookir\Gateway\Idpay;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Larabookir\Gateway\Enum;
 use Larabookir\Gateway\PortAbstract;
 use Larabookir\Gateway\PortInterface;
@@ -142,7 +142,7 @@ class Idpay extends PortAbstract implements PortInterface
 	 */
 	protected function userVerify()
 	{
-		$status = Input::get('status');
+		$status = Request::get('status');
 
 		if (is_numeric($status) && $status == 10) {
 			return true;
@@ -183,7 +183,7 @@ class Idpay extends PortAbstract implements PortInterface
 		curl_close($ch);
 		$response = json_decode($response);
 
-		$this->trackingCode = \Input::get('track_id');
+		$this->trackingCode = \Request::get('track_id');
 		if (
 			$httpcode === 200 &&
 			isset($response->status) && $response->status == 100 && 
