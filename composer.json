@@ -19,9 +19,7 @@
             "email": "Khorsandi@me.com"
         }
     ],
-    "require": {
-        "nesbot/carbon": "~1.20"
-    },    
+    "require": {},    
     "autoload": {
         "psr-4": {
             "Larabookir\\Gateway\\": "src/",
