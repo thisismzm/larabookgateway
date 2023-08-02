@@ -122,6 +122,7 @@ class BazarPay extends PortAbstract implements PortInterface
         $params = [
             'checkout_token' => $this->refId(),
         ];
+        $this->trackingCode = $this->refId();
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->serverVerifyUrl);
