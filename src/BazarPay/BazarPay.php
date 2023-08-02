@@ -166,6 +166,6 @@ class BazarPay extends PortAbstract implements PortInterface
 
     public function getGatewayUrl()
     {
-        return $this->gatewayUrl . '&redirect_url=' . $this->getCallback();
+        return $this->gatewayUrl . '&redirect_url=' . urlencode($this->getCallback());
     }
 }
