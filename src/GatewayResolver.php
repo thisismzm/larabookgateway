@@ -22,6 +22,7 @@ use Larabookir\Gateway\Exceptions\PortNotFoundException;
 use Larabookir\Gateway\Exceptions\InvalidRequestException;
 use Larabookir\Gateway\Exceptions\NotFoundTransactionException;
 use Illuminate\Support\Facades\DB;
+use Larabookir\Gateway\BazarPay\BazarPay;
 
 class GatewayResolver
 {
@@ -36,7 +37,7 @@ class GatewayResolver
 	/**
 	 * Keep current port driver
 	 *
-	 * @var Mellat|Saman|Sadad|Zarinpal|Payline|JahanPay|Parsian|Pay|Saderat|Saderatnew|Idpay|Alfacoins|Payping|Plisio
+	 * @var Mellat|Saman|Sadad|Zarinpal|Payline|JahanPay|Parsian|Pay|Saderat|Saderatnew|Idpay|Alfacoins|Payping|Plisio|Bazarpay
 	 */
 	protected $port;
 
@@ -63,7 +64,7 @@ class GatewayResolver
 	 */
 	public function getSupportedPorts()
 	{
-		return [Enum::MELLAT, Enum::SADAD, Enum::ZARINPAL, Enum::PAYLINE, Enum::JAHANPAY, Enum::PARSIAN, Enum::PASARGAD, Enum::SAMAN, Enum::PAY, Enum::SADERAT, Enum::SADERATNEW, Enum::IDPAY, Enum::ALFACOINS, Enum::PAYPING, Enum::PLISIO];
+		return [Enum::MELLAT, Enum::SADAD, Enum::ZARINPAL, Enum::PAYLINE, Enum::JAHANPAY, Enum::PARSIAN, Enum::PASARGAD, Enum::SAMAN, Enum::PAY, Enum::SADERAT, Enum::SADERATNEW, Enum::IDPAY, Enum::ALFACOINS, Enum::PAYPING, Enum::PLISIO, Enum::BAZARPAY];
 	}
 
 	/**
@@ -164,8 +165,10 @@ class GatewayResolver
 		} elseif ($port InstanceOf Payping) {
 			$name = Enum::PAYPING;
 		} elseif ($port InstanceOf Plisio) {
-			$name = Enum::PLISIO;
-		} elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
+            $name = Enum::PLISIO;
+        } elseif ($port InstanceOf BazarPay) {
+            $name = Enum::BAZARPAY;
+        } elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
 			$port=ucfirst(strtolower($port));
 			$name=strtoupper($port);
 			$class=__NAMESPACE__.'\\'.$port.'\\'.$port;
