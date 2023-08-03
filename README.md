@@ -9,16 +9,17 @@ Available Banks:
  1. MELLAT
  2. SADAD (MELLI)
  3. SAMAN
- 3. PARSIAN
- 4. PASARGAD
- 5. ZARINPAL
- 6. JAHANPAY
- 7. PAYLINE
- 8. PAY (PAY.IR)
- 9. IDPAY (IDPAY.IR)
- 10. ALFACOINS (alfacoins.com)
- 11. PAYPING (payping.io)
- 12. PLISIO (plisio.net)
+ 4. PARSIAN
+ 5. PASARGAD
+ 6. ZARINPAL
+ 7. JAHANPAY
+ 8. PAYLINE
+ 9. PAY (PAY.IR)
+ 10. IDPAY (IDPAY.IR)
+ 11. ALFACOINS (alfacoins.com)
+ 12. PAYPING (payping.io)
+ 13. PLISIO (plisio.net)
+ 14. BazarPay
 
 ----------
 
