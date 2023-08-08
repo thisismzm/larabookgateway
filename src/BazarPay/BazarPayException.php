@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabookir\Gateway\BazarPay;
+namespace Larabookir\Gateway\Bazarpay;
 
 class BazarPayException extends \Exception
 {

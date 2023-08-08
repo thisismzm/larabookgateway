@@ -22,7 +22,7 @@ use Larabookir\Gateway\Exceptions\PortNotFoundException;
 use Larabookir\Gateway\Exceptions\InvalidRequestException;
 use Larabookir\Gateway\Exceptions\NotFoundTransactionException;
 use Illuminate\Support\Facades\DB;
-use Larabookir\Gateway\BazarPay\BazarPay;
+use Larabookir\Gateway\Bazarpay\Bazarpay;
 
 class GatewayResolver
 {
@@ -166,7 +166,7 @@ class GatewayResolver
 			$name = Enum::PAYPING;
 		} elseif ($port InstanceOf Plisio) {
             $name = Enum::PLISIO;
-        } elseif ($port InstanceOf BazarPay) {
+        } elseif ($port InstanceOf Bazarpay) {
             $name = Enum::BAZARPAY;
         } elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
 			$port=ucfirst(strtolower($port));

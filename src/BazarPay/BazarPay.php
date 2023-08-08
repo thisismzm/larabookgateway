@@ -1,13 +1,13 @@
 <?php
 
-namespace Larabookir\Gateway\BazarPay;
+namespace Larabookir\Gateway\Bazarpay;
 
 use Larabookir\Gateway\Enum;
 use Larabookir\Gateway\PortAbstract;
 use Larabookir\Gateway\PortInterface;
 use Illuminate\Support\Facades\Input;
 
-class BazarPay extends PortAbstract implements PortInterface
+class Bazarpay extends PortAbstract implements PortInterface
 {
     protected $serverUrl = 'https://pardakht.cafebazaar.ir/pardakht/badje/v1/';
 
