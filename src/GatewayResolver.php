@@ -165,10 +165,10 @@ class GatewayResolver
 		} elseif ($port InstanceOf Payping) {
 			$name = Enum::PAYPING;
 		} elseif ($port InstanceOf Plisio) {
-            $name = Enum::PLISIO;
-        } elseif ($port InstanceOf Bazarpay) {
-            $name = Enum::BAZARPAY;
-        } elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
+    	$name = Enum::PLISIO;
+		} elseif ($port InstanceOf Bazarpay) {
+    	$name = Enum::BAZARPAY;
+		} elseif(in_array(strtoupper($port),$this->getSupportedPorts())){
 			$port=ucfirst(strtolower($port));
 			$name=strtoupper($port);
 			$class=__NAMESPACE__.'\\'.$port.'\\'.$port;
