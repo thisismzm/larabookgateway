@@ -19,7 +19,7 @@ Available Banks:
  11. ALFACOINS (alfacoins.com)
  12. PAYPING (payping.io)
  13. PLISIO (plisio.net)
- 14. BazarPay
+ 14. Bazarpay
 
 ----------
 
