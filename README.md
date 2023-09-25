@@ -1,110 +1,121 @@
+# 💼 Laravel Gateway Package
 
-package's home : [larabook.ir](http://larabook.ir/اتصال-درگاه-بانک-لاراول/)
+[larabook.ir](http://larabook.ir/اتصال-درگاه-بانک-لاراول/)
 
-by this  package we are able to connect to all Iranian bank with one unique API.
+This package allows you to connect to all Iranian banks using a single, unique API.
 
-Please inform us once you've encountered [bug](https://github.com/larabook/gateway/issues) or [issue](https://github.com/larabook/gateway/issues)  .
+If you encounter any bugs or issues, please inform us by creating an [issue](https://github.com/larabook/gateway/issues) on our GitHub repository.
 
-Available Banks:
- 1. MELLAT
- 2. SADAD (MELLI)
- 3. SAMAN
- 4. PARSIAN
- 5. PASARGAD
- 6. ZARINPAL
- 7. JAHANPAY
- 8. PAYLINE
- 9. PAY (PAY.IR)
- 10. IDPAY (IDPAY.IR)
- 11. ALFACOINS (alfacoins.com)
- 12. PAYPING (payping.io)
- 13. PLISIO (plisio.net)
- 14. Bazarpay
+1. MELLAT
+2. SADAD (MELLI)
+3. SAMAN
+4. PARSIAN
+5. PASARGAD
+6. ZARINPAL
+7. JAHANPAY
+8. PAYLINE
+9. PAY (PAY.IR)
+10. IDPAY (IDPAY.IR)
+11. ALFACOINS (alfacoins.com)
+12. PAYPING (payping.io)
+13. PLISIO (plisio.net)
+14. BAZARPAY
+15. THAWANI
 
-----------
+## 🛠️ Installation
 
+Follow these steps to install the package:
 
-**Installation**:
+1. Run the following command in your terminal:
 
-Run below statements on your terminal :
+    ```sh
+    composer require larabook/gateway
+    ```
 
-STEP 1 :
+2. Add the following lines to `config/app.php`:
 
-	composer require larabook/gateway
+   ```php
+   'providers' => [
+       // ...
+       Larabookir\Gateway\GatewayServiceProvider::class,
+   ],
+   
+   'aliases' => [
+       // ...
+       'Gateway' => Larabookir\Gateway\Gateway::class,
+   ]
+   ```
 
-STEP 2 : Add `provider` and `facade` in config/app.php
+3. Publish the configuration file:
 
-	'providers' => [
-	  ...
-	  Larabookir\Gateway\GatewayServiceProvider::class, // <-- add this line at the end of provider array
-	],
+    ```sh
+    php artisan vendor:publish --provider=Larabookir\Gateway\GatewayServiceProvider
+    ```
 
+4. Run migrations:
 
-	'aliases' => [
-	  ...
-	  'Gateway' => Larabookir\Gateway\Gateway::class, // <-- add this line at the end of aliases array
-	]
+    ```sh
+    php artisan migrate
+    ```
 
-Step 3:  
+## ⚙️ Configuration
 
-	php artisan vendor:publish --provider=Larabookir\Gateway\GatewayServiceProvider
+The configuration file is located at `config/gateway.php`. Open the file and enter your bank's credentials.
 
-Step 4:
+## 🚀 Usage
 
-	php artisan migrate
+You can connect to a bank using either a facade or the service container:
 
+```php
+try {
+   $gateway = \Gateway::make(new \Mellat());
+   // $gateway->setCallback(url('/path/to/callback/route')); // You can also change the callback
+   $gateway->price(1000)->ready();
+   $refId =  $gateway->refId();
+   $transID = $gateway->transactionId();
 
-Configuration file is placed in config/gateway.php , open it and enter your banks credential:
+   // Your code here
 
-You can make connection to bank by several way (Facade , Service container):
+   return $gateway->redirect();
 
-	try {
+} catch (Exception $e) {
+   echo $e->getMessage();
+}
+```
 
-	   $gateway = \Gateway::make(new \Mellat());
-	   // $gateway->setCallback(url('/path/to/calback/route')); You can also change the callback
-	   $gateway->price(1000)->ready();
-	   $refId =  $gateway->refId();
-	   $transID = $gateway->transactionId();
+You can call the gateway using these methods:
 
-	   // Your code here
+1. `Gateway::make(new Mellat());`
+2. `Gateway::mellat();`
+3. `app('gateway')->make(new Mellat());`
+4. `app('gateway')->mellat();`
 
-	   return $gateway->redirect();
+Replace `MELLAT` with the desired bank's name.
 
-	} catch (Exception $e) {
+In the `price` method, enter the price in IRR (RIAL).
 
-		   echo $e->getMessage();
-	}
+In your callback:
 
-you can call the gateway by these ways :
- 1. Gateway::make(new Mellat());
- 1. Gateway::mellat()
- 2. app('gateway')->make(new Mellat());
- 3. app('gateway')->mellat();
+```php
+try {
+   $gateway = \Gateway::verify();
+   $trackingCode = $gateway->trackingCode();
+   $refId = $gateway->refId();
+   $cardNumber = $gateway->cardNumber();
 
-Instead of MELLAT you can enter other banks Name as we introduced above .
+   // Your code here
 
-In `price` method you should enter the price in IRR (RIAL)
+} catch (Exception $e) {
+   echo $e->getMessage();
+}
+```
 
-and in your callback :
+## 🤝 Contributing
 
-	try {
+If you're interested in contributing to this package, you can help in the following ways:
 
-	   $gateway = \Gateway::verify();
-	   $trackingCode = $gateway->trackingCode();
-	   $refId = $gateway->refId();
-	   $cardNumber = $gateway->cardNumber();
+1. Improving documentation.
+2. Reporting issues or bugs.
+3. Collaborating on writing code and adding support for other banks.
 
-	   // Your code here
-
-	} catch (Exception $e) {
-
-	   echo $e->getMessage();
-	}  
-
-If you are intrested to developing this package you can help us by these ways :
-
- 1. Improving documents.
- 2. Reporting issue or bugs.
- 3. Collaboration in writing codes and other banks modules.
-
-This package is extended from PoolPort  but we've changed some functionality and improved it .
+This package is an extension of PoolPort, with added functionality and improvements.
