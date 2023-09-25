@@ -20,6 +20,7 @@ class Enum
     const PAYPING    = 'PAYPING';
     const PLISIO     = 'PLISIO';
     const BAZARPAY   = 'BAZARPAY';
+    const THAWANI    = 'THAWANI';
 
 	/**
 	 * Status code for status field in poolport_transactions table
