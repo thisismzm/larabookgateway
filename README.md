@@ -22,6 +22,7 @@ If you encounter any bugs or issues, please inform us by creating an [issue](htt
 12. PAYPING (payping.io)
 13. PLISIO (plisio.net)
 14. BAZARPAY
+15. THAWANI
 
 ## 🛠️ Installation
 
