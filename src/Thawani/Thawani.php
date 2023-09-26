@@ -72,7 +72,7 @@ class Thawani extends PortAbstract implements PortInterface
                 'description' => $this->description ?? '',
             ],
         ];
-\Log::info($params);
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->serverUrl . '/api/v1/checkout/session');
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
@@ -81,10 +81,7 @@ class Thawani extends PortAbstract implements PortInterface
             'thawani-api-key: ' . $this->config->get('gateway.Thawani.SECRET_KEY'),
             'Content-Type: application/json',
         ]);
-        \Log::info([
-            'thawani-api-key: ' . $this->config->get('gateway.Thawani.SECRET_KEY'),
-            'Content-Type: application/json',
-        ]);
+
         $response = curl_exec($ch);
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
