@@ -4,21 +4,23 @@ namespace Larabookir\Gateway;
 
 class Enum
 {
-	const MELLAT = 'MELLAT';
-	const SADAD = 'SADAD';
-	const ZARINPAL = 'ZARINPAL';
-	const PAYLINE = 'PAYLINE';
-	const JAHANPAY = 'JAHANPAY';
-	const PARSIAN = 'PARSIAN';
-	const PASARGAD = 'PASARGAD';
-	const SAMAN = 'SAMAN';
-	const PAY = 'PAY';
-	const SADERAT = 'SADERAT';
-	const SADERATNEW = 'SADERATNEW';
-	const IDPAY = 'IDPAY';
-	const ALFACOINS = 'ALFACOINS';
-	const PAYPING = 'PAYPING';
-	const PLISIO = 'PLISIO';
+    const MELLAT     = 'MELLAT';
+    const SADAD      = 'SADAD';
+    const ZARINPAL   = 'ZARINPAL';
+    const PAYLINE    = 'PAYLINE';
+    const JAHANPAY   = 'JAHANPAY';
+    const PARSIAN    = 'PARSIAN';
+    const PASARGAD   = 'PASARGAD';
+    const SAMAN      = 'SAMAN';
+    const PAY        = 'PAY';
+    const SADERAT    = 'SADERAT';
+    const SADERATNEW = 'SADERATNEW';
+    const IDPAY      = 'IDPAY';
+    const ALFACOINS  = 'ALFACOINS';
+    const PAYPING    = 'PAYPING';
+    const PLISIO     = 'PLISIO';
+    const BAZARPAY   = 'BAZARPAY';
+    const THAWANI    = 'THAWANI';
 
 	/**
 	 * Status code for status field in poolport_transactions table
