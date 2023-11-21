@@ -38,6 +38,7 @@ class CreateGatewayTransactionsTable extends Migration
 				Enum::ALFACOINS,
 				Enum::PAYPING,
 				Enum::PLISIO,
+				Enum::PAYPAL
 			]);
 			$table->decimal('price', 15, 2);
 			$table->string('ref_id', 100)->nullable();

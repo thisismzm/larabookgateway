@@ -17,6 +17,10 @@
         {
             "name": "Amir Khorsandi",
             "email": "Khorsandi@me.com"
+        },
+        {
+            "name": "Reza Dehghani",
+            "email": "reza@hireza.ir"
         }
     ],
     "require": {},    

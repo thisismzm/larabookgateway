@@ -130,8 +130,32 @@ return [
 		'description' => '',
 		'callback-url' => url('/callback/payping'),
 	],
+	//--------------------------------
+	// Paypal gateway
+	//--------------------------------
+	'paypal' => [
+		'client_id' => 'xxx',
+		'client_secret' => 'xxx',
+		'server' => 'test', // Servers: [test || main]
+		'callback_url' => url('/callback/paypal'),
+		'currency' => 'USD'
+		// One of this list items https://developer.paypal.com/api/rest/reference/currency-codes/
+	],
 	//-------------------------------
 	// Tables names
 	//--------------------------------
-	'table'=> 'gateway_transactions',
+	'table' => 'gateway_transactions',
+
+	//-------------------------------
+	// Proxy settings
+	// first of all this settings read from config folder of app (serivces.php) if it was not exist read from below
+	//--------------------------------
+	'proxy' => [
+		// your proxy address
+		'address' => '127.0.0.1', 
+		// your proxy port
+		'port' => '2081',
+		// using from proxy server
+		'status' => 'false',
+	],
 ];
