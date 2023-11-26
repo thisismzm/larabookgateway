@@ -126,7 +126,7 @@ class Paypal extends PortAbstract implements PortInterface
      */
     public function setCallback($url)
     {
-        $this->callbackUrl = $this->config->get('gateway.paypal.callback_url');
+        $this->callbackUrl = $url;
         return $this;
     }
 
