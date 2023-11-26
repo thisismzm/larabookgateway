@@ -23,6 +23,7 @@ If you encounter any bugs or issues, please inform us by creating an [issue](htt
 13. PLISIO (plisio.net)
 14. BAZARPAY
 15. THAWANI
+16. Paypal
 
 ## 🛠️ Installation
 
