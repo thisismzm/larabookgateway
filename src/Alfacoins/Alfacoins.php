@@ -2,7 +2,7 @@
 
 namespace Larabookir\Gateway\Alfacoins;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Larabookir\Gateway\Enum;
 use Larabookir\Gateway\PortAbstract;
 use Larabookir\Gateway\PortInterface;

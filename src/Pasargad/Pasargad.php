@@ -2,7 +2,7 @@
 
 namespace Larabookir\Gateway\Pasargad;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Larabookir\Gateway\Enum;
 use SoapClient;
 use Larabookir\Gateway\PortAbstract;
@@ -124,7 +124,7 @@ class Pasargad extends PortAbstract implements PortInterface
 	protected function verifyPayment()
 	{
         $fields = array(
-            'invoiceUID' => Input::get('tref'),
+            'invoiceUID' => Request::get('tref'),
         );
 
         $result = Parser::post2https($fields, $this->checkTransactionUrl);

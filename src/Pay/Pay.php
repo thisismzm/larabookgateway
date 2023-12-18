@@ -2,7 +2,7 @@
 
 namespace Larabookir\Gateway\Pay;
 
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Larabookir\Gateway\Enum;
 use Larabookir\Gateway\PortAbstract;
 use Larabookir\Gateway\PortInterface;
@@ -144,8 +144,8 @@ class Pay extends PortAbstract implements PortInterface
 	 */
 	protected function userPayment()
 	{
-		$trackingCode = Input::get('trackingCode');
-		$status = Input::get('status');
+		$trackingCode = Request::get('trackingCode');
+		$status = Request::get('status');
 
 		if (is_numeric($status) && $status == 1) {
 			$this->trackingCode = $trackingCode;
